@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+// Dependencies.
+import {render, screen} from "@testing-library/react";
+import App from "./views/main/app.jsx";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+// Runs test renderer.
+test ("renders learn react link", () => {
+	// Creates app renderer.
+	render (<App/>);
+	// Expects the target element.
+	expect (screen.getByText (/learn react/i)).toBeInTheDocument ();
 });

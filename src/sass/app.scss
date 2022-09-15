@@ -1,0 +1,27 @@
+/*
+* @organization: Console Art Cybernetic
+* @project: Tiktok Chat Simulation
+* @platform: PC (DESKTOP)
+* @created: 2022-07-01
+* @updated: 2022-09-14
+* @framework: React
+* @author: Obrymec
+* @version: 0.0.4
+*/
+
+// Global application body.
+body {
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    padding: 0;
+    margin: 0;
+}
+
+// Label design.
+label, input::placeholder {
+    font-family: "Times New Roman", Times, serif;
+    letter-spacing: 1.5px;
+    user-select: none;
+    color: #303030;
+    font-size: 16px;
+}
