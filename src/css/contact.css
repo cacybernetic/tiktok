@@ -1,0 +1,68 @@
+/*
+* @organization: Console Art Cybernetic
+* @project: Tiktok Chat Simulation
+* @platform: PC (DESKTOP)
+* @created: 2022-09-15
+* @updated: 2022-09-15
+* @framework: React
+* @author: Obrymec
+* @version: 0.1.2
+*/
+/*
+* @organization: Console Art Cybernetic
+* @project: Tiktok Chat Simulation
+* @platform: PC (DESKTOP)
+* @created: 2022-07-01
+* @updated: 2022-07-14
+* @framework: React
+* @author: Obrymec
+* @version: 0.0.2
+*/
+@font-face {
+  src: url("../assets/fonts/RedHatDisplay-Regular.ttf");
+  font-family: "RedHatDisplayRegular"; }
+@font-face {
+  src: url("../assets/fonts/PublicSans-ExtraBold.ttf");
+  font-family: "PublicSansBold"; }
+@font-face {
+  src: url("../assets/fonts/Oxygen-Regular.ttf");
+  font-family: "OxygenRegular"; }
+div.guest-contact {
+  transition: background-color 0.4s;
+  justify-content: center;
+  padding: 6px 0 6px 6%;
+  display: inline-flex;
+  cursor: pointer;
+  width: 94%; }
+  div.guest-contact:hover {
+    background-color: #f7f7f7; }
+  div.guest-contact div.guest-profil img {
+    transform: translateY(2px);
+    display: inline-block;
+    border-radius: 64px;
+    object-fit: cover; }
+  div.guest-contact div.guest-data {
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 10px;
+    display: flex;
+    width: 100%; }
+    div.guest-contact div.guest-data div.guest-name > label {
+      font-family: "RedHatDisplayRegular";
+      font-size: 13px;
+      cursor: pointer; }
+    div.guest-contact div.guest-data div.bottom-data {
+      display: inline-flex;
+      margin-top: 3px; }
+      div.guest-contact div.guest-data div.bottom-data div.chat-label > label {
+        font-family: "OxygenRegular";
+        cursor: pointer;
+        font-size: 11px;
+        color: gray; }
+      div.guest-contact div.guest-data div.bottom-data div.msg-date > label {
+        font-family: "OxygenRegular";
+        color: #b4b4b4;
+        transform: translateX(10px);
+        display: inline-block;
+        cursor: pointer;
+        font-size: 11px; }

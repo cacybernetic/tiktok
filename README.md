@@ -34,7 +34,7 @@ npm install yarn --global
 ```
 #
 ### <u>React installation</u>:
-If you don't have React in your computer, you can install them with npm or yarn program like this:
+If you don't have React in your computer, you can install it with npm or yarn like this:
 ```sh
 sudo npm -g install create-react-app
 ```
@@ -51,7 +51,7 @@ or
 ```sh
 yarn create react-app my-new-react-project/
 ```
-If you want to run your react project after his creation, go to your project root folder and tap this command line:
+If you want to run your react project after his creation, go to your project root folder and write:
 ```sh
 npm start
 ```

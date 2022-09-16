@@ -6,11 +6,12 @@
 * @updated: 2022-09-14
 * @framework: React
 * @author: Obrymec
-* @version: 0.0.1
+* @version: 0.0.3
 */
 
 // Dependencies.
 import HeaderUI from "../header/ui.jsx";
+import BodyUI from "../body/ui.jsx";
 import "../../css/app.css";
 import React from "react";
 
@@ -39,5 +40,7 @@ export default class App extends React.PureComponent {
 	render = () => <div className = "chat-simulation">
 		{/* Application global header view */}
 		<HeaderUI/>
+		{/* Application chat workspace */}
+		<BodyUI/>
 	</div>;
 }
