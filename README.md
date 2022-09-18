@@ -11,9 +11,6 @@ cd ~
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 ```
 ```sh
-nano /tmp/nodesource_setup.sh
-```
-```sh
 sudo bash /tmp/nodesource_setup.sh
 ```
 ```sh
@@ -32,10 +29,10 @@ sudo npm install yarn --global
 ### <u>React installation</u>:
 If you don't have React in your computer, you can install it with npm or yarn like this:
 ```sh
-sudo yarn global add create-react-app --prefix /usr/local
+sudo yarn global add create-react-app
 ```
 #
-### <u>Cloning project</u>:
+### <u>Project cloning</u>:
 ```sh
 git clone git@github.com:cacybernetic/tiktok.git
 ```
