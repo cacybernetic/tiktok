@@ -3,7 +3,7 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-15
-* @updated: 2022-09-17
+* @updated: 2022-09-18
 * @framework: React
 * @author: Obrymec
 * @version: 0.1.2
@@ -34,10 +34,10 @@ div.active-contact {
 div.guest-contact {
     transition: background-color 0.4s;
     justify-content: center;
-    padding: 6px 0 6px 6%;
+    padding: 6px 10% 6px 6%;
     display: inline-flex;
     cursor: pointer;
-    width: 94%;
+    width: 84%;
     &:hover {
         background-color: #f7f7f7;
     }
