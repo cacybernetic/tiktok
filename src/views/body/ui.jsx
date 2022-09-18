@@ -3,14 +3,14 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-15
-* @updated: 2022-09-15
+* @updated: 2022-09-18
 * @framework: React
 * @author: Obrymec
-* @version: 0.0.6
+* @version: 0.1.1
 */
 
 // Dependencies.
-import ContactUI from "../../components/contact/ui.jsx";
+import Profil1 from "../../assets/images/profil_1.jpeg";
 import Profil7 from "../../assets/images/profil_7.jpeg";
 import Profil2 from "../../assets/images/profil_2.gif";
 import Profil3 from "../../assets/images/profil_3.jpg";
@@ -19,6 +19,12 @@ import Profil5 from "../../assets/images/profil_5.jpg";
 import Profil6 from "../../assets/images/profil_6.jpg";
 import Profil8 from "../../assets/images/profil_8.jpg";
 import Profil9 from "../../assets/images/profil_9.jpg";
+import ChatMessagesHeader from "../msgheader/ui.jsx";
+import ChatMessageEditor from "../msgeditor/ui.jsx";
+import DateTime from "../../lib/datetime.js";
+import Contacts from "../contacts/ui.jsx";
+import ChatContext from "../chat/ui.jsx";
+import lodash from "lodash";
 import "../../css/body.css";
 import React from "react";
 
@@ -26,7 +32,7 @@ import React from "react";
 * @description: Creates application body view.
 * @type: UI
 */
-export default class BodyUI extends React.PureComponent {
+export default class Body extends React.PureComponent {
 	/*
     * @description: Builds view instance.
     * @parameters:
@@ -37,19 +43,194 @@ export default class BodyUI extends React.PureComponent {
 		// Calls the parent constructor.
 		super (props);
 		// Global attributes.
+        this.chat_context = React.createRef ();
 		this.state = {
-            contacts: [
-                {profil: Profil8, name: "Steven Jonathan", label: "This message isn't...", date: "10/8/2022"},
-                {profil: Profil2, name: "Lumia Noella", label: "This message isn't...", date: "9/3/2022"},
-                {profil: Profil6, name: "Alice Eli", label: "This message isn't...", date: "9/11/2022"},
-                {profil: Profil4, name: "Reina Cru Ella", label: "Shared a video", date: "9/13/2022"},
-                {profil: Profil3, name: "Yaya de Lille", label: "Shared a video", date: "9/13/2022"},
-                {profil: Profil9, name: "Edwardo", label: "This message was...", date: "13/10/2022"},
-                {profil: Profil7, name: "Eric Miller", label: "Shared a photo", date: "9/12/2022"},
-                {profil: Profil5, name: "Aicha Kone", label: "Ok compris", date: "9/11/2022"}
+            active_index: 0,
+            chats: [
+                {
+                    label: "This message isn't...",
+                    name: "Lumia Noella",
+                    date: "9/3/2022",
+                    profil: Profil2,
+                    data: [
+                        {
+                            datetime: "August 21, 2022 19:45",
+                            messages: [
+                                {is_contact: true, text: "Hi"},
+                                {is_contact: true, text: "How are you ?"},
+                                {is_contact: false, text: "Good morning"},
+                                {is_contact: false, text: "I'm fine, thanks !"},
+                                {is_contact: true, text: "Super"},
+                                {is_contact: true, text: "Have you finish to do yours packs ?"},
+                                {is_contact: false, text: "Not again"},
+                                {is_contact: false, text: "I'm making that."},
+                                {is_contact: true, text: "Alright"}
+                            ]
+                        },
+                        {
+                            datetime: "August 22, 2022 06:11",
+                            messages: [
+                                {is_contact: true, text: "Hi"},
+                                {is_contact: true, text: "I'm waiting for you."},
+                                {is_contact: true, text: "Please, try to make that quickly."},
+                                {is_contact: false, text: "Good morning"},
+                                {is_contact: false, text: "Received message 5/5"},
+                                {is_contact: true, text: "Good"},
+                                {is_contact: false, text: "See you later"},
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: "Shared a video",
+                    name: "Yaya de Lille",
+                    date: "9/13/2022",
+                    profil: Profil3,
+                    data: [
+                        {
+                            datetime: "August 21, 2022 20:00",
+                            messages: [
+                                {is_contact: true, text: "Message 1"},
+                                {is_contact: false, text: "Message 2"},
+                                {is_contact: false, text: "Message 3"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: "This message isn't...",
+                    name: "Reina Cru Ella",
+                    date: "9/11/2022",
+                    profil: Profil4,
+                    data: [
+                        {
+                            datetime: "August 22, 2022 00:56",
+                            messages: [
+                                {is_contact: true, text: "Message 1"},
+                                {is_contact: false, text: "Message 2"},
+                                {is_contact: false, text: "Message 3"}
+                            ]
+                        }
+                    ]
+                        
+                },
+                {
+                    label: "Ok compris",
+                    name: "Aicha Kone",
+                    date: "9/11/2022",
+                    profil: Profil5,
+                    data: [
+                        {
+                            datetime: "September 3, 2022 18:29",
+                            messages: [
+                                {is_contact: true, text: "Message 1"},
+                                {is_contact: false, text: "Message 2"},
+                                {is_contact: false, text: "Message 3"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: "This message isn't...",
+                    name: "Alice Eli",
+                    date: "9/11/2022",
+                    profil: Profil6,
+                    data: [
+                        {
+                            datetime: "September 11, 2022 09:15",
+                            messages: [
+                                {is_contact: true, text: "Message 1"},
+                                {is_contact: false, text: "Message 2"},
+                                {is_contact: false, text: "Message 3"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: "Shared a photo",
+                    name: "Eric Miller",
+                    date: "9/12/2022",
+                    profil: Profil7,
+                    data: [
+                        {
+                            datetime: "Febuary 7, 2021 11:11",
+                            messages: [
+                                {is_contact: true, text: "Message 1"},
+                                {is_contact: false, text: "Message 2"},
+                                {is_contact: false, text: "Message 3"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: "This message isn't...",
+                    name: "Steven Jonathan",
+                    date: "10/8/2022",
+                    profil: Profil8,
+                    data: [
+                        {
+                            datetime: "March 19, 2022 16:03",
+                            messages: [
+                                {is_contact: true, text: "Message 1"},
+                                {is_contact: false, text: "Message 2"},
+                                {is_contact: false, text: "Message 3"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: "This message was...",
+                    date: "13/10/2022",
+                    name: "Edwardo",
+                    profil: Profil9,
+                    data: [
+                        {
+                            datetime: "December 25, 2022 00:05",
+                            messages: [
+                                {is_contact: true, text: "Message 1"},
+                                {is_contact: false, text: "Message 2"},
+                                {is_contact: false, text: "Message 3"}
+                            ]
+                        }
+                    ]
+                }
             ]
         };
 	}
+
+    /*
+    * @description: Sets active user contact index.
+    * @parameters:
+    *   -> int id: Contains the new value of index.
+    * @return: void
+    */
+    __set_active_contact_index = new_index => this.setState ({active_index: new_index});
+
+    /*
+    * @description: Sends a written message to another connected user.
+    * @parameters:
+    *   -> String datetime: What the current datetime for message to send ?
+    *   -> bool is_contact: Is it from the main user or his contact ?
+    *   -> String message: Contains the message to be sent.
+    * @return: void
+    */
+    __send_message = (datetime, is_contact, message) => {
+        // Gets chats data.
+        let chats = lodash.cloneDeep (this.state.chats), today = (datetime.split (',')[0] + ", " + new Date ().getFullYear ());
+        // Gets chat datetime index.
+        let index = chats[this.state.active_index].data.findLastIndex (item => {
+            // Returns the imposed constraint.
+            return ((item.datetime.split (',')[0] + ", " + new Date ().getFullYear ()) === today);
+        });
+        // The given datetime is it defined ?
+        if (index > -1) chats[this.state.active_index].data[index].messages.push ({is_contact: is_contact, text: message});
+        // Adds the current message with the given datetime for today.
+        else chats[this.state.active_index].data.push ({datetime: DateTime.get_datetime (), messages: [{is_contact: is_contact, text: message}]});
+        // Updates the global state.
+        this.setState ({chats: chats});
+        // Moves the scrollbar at the full bottom.
+        setTimeout (() => this.chat_context.current.scroll_to_bottom (), 100);
+    }
 
 	/*
     * @description: Returns this view as JSX format.
@@ -60,7 +241,7 @@ export default class BodyUI extends React.PureComponent {
         {/* Global container */}
         <div className = "chat-container">
             {/* Left arrow container */}
-            <div className = "left-arrow" title = "Retour arrière.">
+            <div className = "left-arrow" title = "Back to the previous page.">
                 {/* Vector image */}
                 <svg viewBox = "0 0 24 24" width = "24px" height = "24px" fill = "#343434">
                     <polygon fillRule = "evenodd" points = {`6.414 13 12.707 19.293 11.293 
@@ -68,40 +249,17 @@ export default class BodyUI extends React.PureComponent {
                 </svg>
             </div>
             {/* Availables users contacts */}
-            <div className = "users-contacts">
-                {/* Global title */}
-                <div className = "contacts-header">
-                    {/* Label text */}
-                    <div className = "contacts-title"><label><strong>Messages</strong></label></div>
-                    {/* Settings icon */}
-                    <div className = "settings-icon" title = "Afficher les paramètres.">
-                        {/* Vector representation */}
-                        <svg viewBox = "0 0 512 512" width = "24px" height = "24px" fill = "#343434">
-                            <path d = {`M262.29,192.31a64,64,0,1,0,57.4,57.4A64.13,64.13,0,0,0,262.29,192.31ZM416.39,
-                            256a154.34,154.34,0,0,1-1.53,20.79l45.21,35.46A10.81,10.81,0,0,1,462.52,326l-42.77,74a10.81,
-                            10.81,0,0,1-13.14,4.59l-44.9-18.08a16.11,16.11,0,0,0-15.17,1.75A164.48,164.48,0,0,1,325,
-                            400.8a15.94,15.94,0,0,0-8.82,12.14l-6.73,47.89A11.08,11.08,0,0,1,298.77,470H213.23a11.11,
-                            11.11,0,0,1-10.69-8.87l-6.72-47.82a16.07,16.07,0,0,0-9-12.22,155.3,155.3,0,0,1-21.46-12.57,
-                            16,16,0,0,0-15.11-1.71l-44.89,18.07a10.81,10.81,0,0,1-13.14-4.58l-42.77-74a10.8,10.8,0,0,1,
-                            2.45-13.75l38.21-30a16.05,16.05,0,0,0,6-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16,
-                            16,0,0,0-6.07-13.94l-38.19-30A10.81,10.81,0,0,1,49.48,186l42.77-74a10.81,10.81,0,0,1,
-                            13.14-4.59l44.9,18.08a16.11,16.11,0,0,0,15.17-1.75A164.48,164.48,0,0,1,187,111.2a15.94,15.94,
-                            0,0,0,8.82-12.14l6.73-47.89A11.08,11.08,0,0,1,213.23,42h85.54a11.11,11.11,0,0,1,10.69,8.87l6.72,
-                            47.82a16.07,16.07,0,0,0,9,12.22,155.3,155.3,0,0,1,21.46,12.57,16,16,0,0,0,15.11,1.71l44.89-18.07a10.81,
-                            10.81,0,0,1,13.14,4.58l42.77,74a10.8,10.8,0,0,1-2.45,13.75l-38.21,30a16.05,16.05,0,0,0-6.05,
-                            14.08C416.17,247.67,416.39,251.83,416.39,256Z`} className = "settings"/>
-                        </svg>
-                    </div>
-                </div>
-                {/* User contacts container */}
-                <div className = "guests-contacts">
-                    {/* Creating user contacts */}
-                    {this.state.contacts.map ((item, index) => <ContactUI profil = {item.profil} key = {index} name = {item.name}
-                        label = {item.label} date = {item.date}/>)}
-                </div>
-            </div>
+            <Contacts chatContext = {this.chat_context.current} contacts = {this.state.chats} setIndex = {this.__set_active_contact_index}/>
             {/* Messages worksapce */}
-            <div className = "messages-workspace"></div>
+            <div className = "messages-workspace">
+                {/* Messages header container */}
+                <ChatMessagesHeader contact = {this.state.chats[this.state.active_index]}/>
+                {/* Chat context */}
+                <ChatContext chats = {this.state.chats[this.state.active_index].data} userProfil = {Profil1}
+                    contactProfil = {this.state.chats[this.state.active_index].profil} ref = {this.chat_context}/>
+                {/* Message editor */}
+                <ChatMessageEditor sendMessage = {this.__send_message}/>
+            </div>
         </div>
     </div>;
 }

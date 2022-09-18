@@ -3,10 +3,10 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-15
-* @updated: 2022-09-15
+* @updated: 2022-09-17
 * @framework: React
 * @author: Obrymec
-* @version: 0.1.2
+* @version: 0.4.6
 */
 
 // Dependencies.
@@ -19,11 +19,6 @@ path.settings {
     stroke-width: 32px;
     stroke: #000;
     fill: none;
-}
-
-// Override scrollbar shape.
-::-webkit-scrollbar {
-    width: 0;
 }
 
 // Chat workspace.
@@ -52,55 +47,9 @@ div.chat-workspace {
             height: 40px;
             width: 40px;
         }
-        // Users contacts.
-        div.users-contacts {
-            box-shadow: 0 0 6px #ddd;
-            background-color: #fff;
-            border-radius: 8px;
-            height: 100%;
-            width: 23%;
-            // Contacts header.
-            div.contacts-header {
-                box-shadow: 0 0 1px 1px #eee;
-                border-top-right-radius: 8px;
-                border-top-left-radius: 8px;
-                padding: 13px 0 13px 0;
-                display: inline-flex;
-                width: 100%;
-                // Contacts title
-                div.contacts-title {
-                    align-items: center;
-                    padding-left: 20px;
-                    display: flex;
-                    width: 100%;
-                    // Label text.
-                    label {
-                        font-family: "PublicSansBold";
-                        font-size: 18px;
-                    }
-                }
-                // Settings icon.
-                div.settings-icon {
-                    align-items: center;
-                    padding-right: 20px;
-                    cursor: pointer;
-                    display: flex;
-                    // Image.
-                    svg {
-                        transform: rotate(-30deg);
-                    }
-                }
-            }
-            // Guests contacts.
-            div.guests-contacts {
-                border-bottom-right-radius: 8px;
-                border-bottom-left-radius: 8px;
-                overflow-y: auto;
-                height: 91.7%;
-            }
-        }
         // Messages workspace.
         div.messages-workspace {
+            transform: translate3d(0, 0, 0);
             box-shadow: 0 0 6px #ddd;
             background-color: #fff;
             border-radius: 8px;

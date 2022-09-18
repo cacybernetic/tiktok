@@ -3,35 +3,22 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-14
-* @updated: 2022-09-14
+* @updated: 2022-09-17
 * @framework: React
 * @author: Obrymec
-* @version: 0.1.6
+* @version: 0.1.8
 */
 
 // Dependencies.
-import ProfilImage from "../../assets/images/profil.jpeg";
+import ProfilImage from "../../assets/images/profil_1.jpeg";
 import "../../css/header.css";
 import React from "react";
 
 /*
-* @description: Creates application header view bar.
+* @description: Creates application header bar view.
 * @type: UI
 */
-export default class HeaderUI extends React.PureComponent {
-	/*
-    * @description: Builds view instance.
-    * @parameters:
-    *   -> Object props: Contains class properties.
-    * @return: void
-    */
-	constructor (props) {
-		// Calls the parent constructor.
-		super (props);
-		// Global attributes.
-		this.state = {};
-	}
-
+export default class Header extends React.PureComponent {
 	/*
     * @description: Returns this view as JSX format.
     * @return: JSXObject
@@ -56,11 +43,11 @@ export default class HeaderUI extends React.PureComponent {
             <div className = "tiktok-text"><label><strong>TikTok</strong></label></div>
         </div>
         {/* Search container */}
-        <div className = "searcher" title = "Rechercher quelque chose.">
+        <div className = "searcher" title = "Search something here.">
             {/* Input representation */}
             <input type = "text" placeholder = "Search accounts and videos"/>
             {/* Clear icon section */}
-            <div className = "clear-icon" title = "Effacer la valeur saisie.">
+            <div className = "clear-icon" title = "Clear the given value.">
                 {/* Vector representation */}
                 <svg viewBox = "0 0 512 512" width = "18px" height = "18px" fill = "silver">
                     <g><path d = {`M256,33C132.3,33,32,133.3,32,257c0,123.7,100.3,224,224,224c123.7,0,224-100.3,224-224C480,133.3,
@@ -83,7 +70,7 @@ export default class HeaderUI extends React.PureComponent {
         {/* Right data */}
         <section className = "right-data">
             {/* Upload button */}
-            <div className = "upload-btn" title = "Envoyer quelque chose.">
+            <div className = "upload-btn" title = "Send something.">
                 {/* Add icon container */}
                 <div className = "add-icon">
                     {/* Vector representation */}
@@ -119,7 +106,7 @@ export default class HeaderUI extends React.PureComponent {
                 </svg>
             </div>
             {/* User profil representation */}
-            <div className = "user-profil" title = "Mon profile."><img src = {ProfilImage} width = "44px" height = "44px" alt = ''/></div>
+            <div className = "user-profil" title = "My profil."><img src = {ProfilImage} width = "44px" height = "44px" alt = ''/></div>
         </section>
 	</div>;
 }

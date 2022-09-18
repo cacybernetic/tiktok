@@ -13,19 +13,19 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-07-01
-* @updated: 2022-07-14
+* @updated: 2022-07-17
 * @framework: React
 * @author: Obrymec
 * @version: 0.0.2
 */
 @font-face {
-  src: url("../assets/fonts/RedHatDisplay-Regular.ttf");
+  src: url("../assets/fonts/RedHatRegular.ttf");
   font-family: "RedHatDisplayRegular"; }
 @font-face {
-  src: url("../assets/fonts/PublicSans-ExtraBold.ttf");
+  src: url("../assets/fonts/PublicSansBold.ttf");
   font-family: "PublicSansBold"; }
 @font-face {
-  src: url("../assets/fonts/Oxygen-Regular.ttf");
+  src: url("../assets/fonts/OxygenRegular.ttf");
   font-family: "OxygenRegular"; }
 path.tiktok-1 {
   fill: #00f6ef; }

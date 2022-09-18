@@ -3,7 +3,7 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-15
-* @updated: 2022-09-15
+* @updated: 2022-09-17
 * @framework: React
 * @author: Obrymec
 * @version: 0.1.2
@@ -13,20 +13,30 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-07-01
-* @updated: 2022-07-14
+* @updated: 2022-07-17
 * @framework: React
 * @author: Obrymec
 * @version: 0.0.2
 */
 @font-face {
-  src: url("../assets/fonts/RedHatDisplay-Regular.ttf");
+  src: url("../assets/fonts/RedHatRegular.ttf");
   font-family: "RedHatDisplayRegular"; }
 @font-face {
-  src: url("../assets/fonts/PublicSans-ExtraBold.ttf");
+  src: url("../assets/fonts/PublicSansBold.ttf");
   font-family: "PublicSansBold"; }
 @font-face {
-  src: url("../assets/fonts/Oxygen-Regular.ttf");
+  src: url("../assets/fonts/OxygenRegular.ttf");
   font-family: "OxygenRegular"; }
+div.active-contact {
+  background-color: #eee !important;
+  cursor: default !important; }
+  div.active-contact div.guest-name > label {
+    cursor: default !important; }
+  div.active-contact div.chat-label > label {
+    cursor: default !important; }
+  div.active-contact div.msg-date > label {
+    cursor: default !important; }
+
 div.guest-contact {
   transition: background-color 0.4s;
   justify-content: center;

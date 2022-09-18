@@ -3,7 +3,7 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-15
-* @updated: 2022-09-15
+* @updated: 2022-09-17
 * @framework: React
 * @author: Obrymec
 * @version: 0.1.2
@@ -11,6 +11,24 @@
 
 // Dependencies.
 @import "tools.scss";
+
+// Active user contact design.
+div.active-contact {
+    background-color: #eee !important;
+    cursor: default !important;
+    // Guest name.
+    div.guest-name > label {
+        cursor: default !important;
+    }
+    // Guest label.
+    div.chat-label > label {
+        cursor: default !important;
+    }
+    // Message date.
+    div.msg-date > label {
+        cursor: default !important;
+    }
+}
 
 // Guest chat contact.
 div.guest-contact {

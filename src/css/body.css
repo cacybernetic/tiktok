@@ -3,29 +3,29 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-15
-* @updated: 2022-09-15
+* @updated: 2022-09-17
 * @framework: React
 * @author: Obrymec
-* @version: 0.1.2
+* @version: 0.4.6
 */
 /*
 * @organization: Console Art Cybernetic
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-07-01
-* @updated: 2022-07-14
+* @updated: 2022-07-17
 * @framework: React
 * @author: Obrymec
 * @version: 0.0.2
 */
 @font-face {
-  src: url("../assets/fonts/RedHatDisplay-Regular.ttf");
+  src: url("../assets/fonts/RedHatRegular.ttf");
   font-family: "RedHatDisplayRegular"; }
 @font-face {
-  src: url("../assets/fonts/PublicSans-ExtraBold.ttf");
+  src: url("../assets/fonts/PublicSansBold.ttf");
   font-family: "PublicSansBold"; }
 @font-face {
-  src: url("../assets/fonts/Oxygen-Regular.ttf");
+  src: url("../assets/fonts/OxygenRegular.ttf");
   font-family: "OxygenRegular"; }
 path.settings {
   stroke-linejoin: round;
@@ -33,9 +33,6 @@ path.settings {
   stroke-width: 32px;
   stroke: #000;
   fill: none; }
-
-::-webkit-scrollbar {
-  width: 0; }
 
 div.chat-workspace {
   position: fixed;
@@ -59,40 +56,8 @@ div.chat-workspace {
       display: flex;
       height: 40px;
       width: 40px; }
-    div.chat-workspace div.chat-container div.users-contacts {
-      box-shadow: 0 0 6px #ddd;
-      background-color: #fff;
-      border-radius: 8px;
-      height: 100%;
-      width: 23%; }
-      div.chat-workspace div.chat-container div.users-contacts div.contacts-header {
-        box-shadow: 0 0 1px 1px #eee;
-        border-top-right-radius: 8px;
-        border-top-left-radius: 8px;
-        padding: 13px 0 13px 0;
-        display: inline-flex;
-        width: 100%; }
-        div.chat-workspace div.chat-container div.users-contacts div.contacts-header div.contacts-title {
-          align-items: center;
-          padding-left: 20px;
-          display: flex;
-          width: 100%; }
-          div.chat-workspace div.chat-container div.users-contacts div.contacts-header div.contacts-title label {
-            font-family: "PublicSansBold";
-            font-size: 18px; }
-        div.chat-workspace div.chat-container div.users-contacts div.contacts-header div.settings-icon {
-          align-items: center;
-          padding-right: 20px;
-          cursor: pointer;
-          display: flex; }
-          div.chat-workspace div.chat-container div.users-contacts div.contacts-header div.settings-icon svg {
-            transform: rotate(-30deg); }
-      div.chat-workspace div.chat-container div.users-contacts div.guests-contacts {
-        border-bottom-right-radius: 8px;
-        border-bottom-left-radius: 8px;
-        overflow-y: auto;
-        height: 91.7%; }
     div.chat-workspace div.chat-container div.messages-workspace {
+      transform: translate3d(0, 0, 0);
       box-shadow: 0 0 6px #ddd;
       background-color: #fff;
       border-radius: 8px;
