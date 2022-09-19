@@ -3,14 +3,14 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-16
-* @updated: 2022-09-17
+* @updated: 2022-09-18
 * @framework: React
 * @author: Obrymec
-* @version: 0.0.1
+* @version: 0.0.2
 */
 
 // Dependencies.
-import "../../css/lchat.css";
+import "../css/lchat.css";
 import React from "react";
 
 /*

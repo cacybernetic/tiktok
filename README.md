@@ -1,5 +1,4 @@
 ## Environment installation
-***This tutorial only work on Linux.***
 ### <u>Install curl</u>:
 ```sh
 sudo apt install curl

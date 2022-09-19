@@ -3,17 +3,17 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-14
-* @updated: 2022-09-17
+* @updated: 2022-09-18
 * @framework: React
 * @author: Obrymec
 * @version: 0.0.3
 */
 
 // Dependencies.
-import Header from "../header/ui.jsx";
-import Body from "../body/ui.jsx";
-import "../../css/app.css";
+import Header from "./header.jsx";
+import Body from "./body.jsx";
 import React from "react";
+import "../css/app.css";
 
 /*
 * @description: Main application class definition.

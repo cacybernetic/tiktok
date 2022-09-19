@@ -10,8 +10,8 @@
 */
 
 // Dependencies.
-import Contact from "../../components/contact/ui.jsx";
-import "../../css/contacts.css";
+import Contact from "../components/contact.jsx";
+import "../css/contacts.css";
 import React from "react";
 
 /*

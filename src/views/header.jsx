@@ -3,15 +3,17 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-14
-* @updated: 2022-09-17
+* @updated: 2022-09-18
 * @framework: React
 * @author: Obrymec
 * @version: 0.1.8
 */
 
 // Dependencies.
-import ProfilImage from "../../assets/images/profil_1.jpeg";
-import "../../css/header.css";
+import ProfilImage from "../assets/images/profil_1.jpeg";
+import LoopIcon from "../assets/images/loop.svg";
+import Menu from "../components/menu.jsx";
+import "../css/header.css";
 import React from "react";
 
 /*
@@ -19,6 +21,71 @@ import React from "react";
 * @type: UI
 */
 export default class Header extends React.PureComponent {
+    /*
+    * @description: Builds view instance.
+    * @parameters:
+    *   -> Object props: Contains class properties.
+    * @return: void
+    */
+	constructor (props) {
+		// Calls the parent constructor.
+		super (props);
+		// Global attributes.
+        this.field = React.createRef ();
+        this.menu = React.createRef ();
+		this.state = {
+            show_suggestions: false,
+            suggestions: [
+                {left_icon: LoopIcon, text: "hellodelu974", on_select: ref => this.__on_select (ref.get_text ())},
+                {left_icon: LoopIcon, text: "hello house", on_select: ref => this.__on_select (ref.get_text ())},
+                {left_icon: LoopIcon, text: "hello songs", on_select: ref => this.__on_select (ref.get_text ())},
+                {left_icon: LoopIcon, text: "hellokitty", on_select: ref => this.__on_select (ref.get_text ())},
+                {left_icon: LoopIcon, text: "hello guys", on_select: ref => this.__on_select (ref.get_text ())},
+                {left_icon: LoopIcon, text: "hellofresh", on_select: ref => this.__on_select (ref.get_text ())},
+                {left_icon: LoopIcon, text: "helloxh", on_select: ref => this.__on_select (ref.get_text ())},
+                {left_icon: LoopIcon, text: "hello", on_select: ref => this.__on_select (ref.get_text ())}
+            ]
+        }
+    }
+
+    /*
+    * @description: Called when search input value changed.
+    * @parameters:
+    *   -> InputEvent event: Contains the current input event object reference.
+    * @return: void
+    */
+    __on_input_value_changed = event => this.menu.current.search_item (event.target.value);
+
+    /*
+    * @description: Called when a search is done.
+    * @parameters:
+    *   -> Array results: Contains the results search.
+    * @return: void
+    */
+    __on_search = results => this.setState ({show_suggestions: results.length > 0});
+
+    /*
+    * @description: Called when the clear button is pressed.
+    * @return: void
+    */
+    __on_clear_search_field = () => {
+        // Clears input search field.
+        this.field.current.value = String ('');
+        // Makes a search with an empty id.
+        this.menu.current.search_item (this.field.current.value);
+    }
+
+    /*
+    * @description: Called when any suggestion is pressed.
+    * @return: void
+    */
+    __on_select = value => {
+        // Hide suggestions.
+        this.setState ({show_suggestions: false});
+        // Updates search input field.
+        this.field.current.value = value;
+    }
+
 	/*
     * @description: Returns this view as JSX format.
     * @return: JSXObject
@@ -45,7 +112,12 @@ export default class Header extends React.PureComponent {
         {/* Search container */}
         <div className = "searcher" title = "Search something here.">
             {/* Input representation */}
-            <input type = "text" placeholder = "Search accounts and videos"/>
+            <input type = "text" placeholder = "Search accounts and videos" onChange = {this.__on_input_value_changed} ref = {this.field}/>
+            {/* Menu dropdown suggestions */}
+            <div className = "menu-dropdown" style = {{display: (this.state.show_suggestions ? "inline-block" : "none")}}>
+                {/* Draw menu dropdown */}
+                <Menu data = {{data: this.state.suggestions, on_search: this.__on_search}} ref = {this.menu}/>
+            </div>
             {/* Clear icon section */}
             <div className = "clear-icon" title = "Clear the given value.">
                 {/* Vector representation */}
@@ -61,7 +133,7 @@ export default class Header extends React.PureComponent {
             {/* Icon seacher section */}
             <div className = "searcher-icon">
                 {/* Vector representation */}
-                <svg viewBox = "0 0 32 32" width = "22px" height = "22px" fill = "silver">
+                <svg viewBox = "0 0 32 32" width = "22px" height = "22px" fill = "silver" onClick = {() => this.field.current.value = String ('')}>
                     <g><path d = {`M29.71,28.29l-6.5-6.5-.07,0a12,12,0,1,0-1.39,1.39s0,.05,0,.07l6.5,6.5a1,1,0,0,0,1.42,0A1,1,0,0,0,29.71,
                     28.29ZM14,24A10,10,0,1,1,24,14,10,10,0,0,1,14,24Z`}/></g>
                 </svg>

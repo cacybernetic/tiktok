@@ -10,23 +10,23 @@
 */
 
 // Dependencies.
-import Profil1 from "../../assets/images/profil_1.jpeg";
-import Profil7 from "../../assets/images/profil_7.jpeg";
-import Profil2 from "../../assets/images/profil_2.gif";
-import Profil3 from "../../assets/images/profil_3.jpg";
-import Profil4 from "../../assets/images/profil_4.jpg";
-import Profil5 from "../../assets/images/profil_5.jpg";
-import Profil6 from "../../assets/images/profil_6.jpg";
-import Profil8 from "../../assets/images/profil_8.jpg";
-import Profil9 from "../../assets/images/profil_9.jpg";
-import ChatMessagesHeader from "../msgheader/ui.jsx";
-import ChatMessageEditor from "../msgeditor/ui.jsx";
-import DateTime from "../../lib/datetime.js";
-import Contacts from "../contacts/ui.jsx";
-import ChatContext from "../chat/ui.jsx";
+import Profil1 from "../assets/images/profil_1.jpeg";
+import Profil7 from "../assets/images/profil_7.jpeg";
+import Profil2 from "../assets/images/profil_2.gif";
+import Profil3 from "../assets/images/profil_3.jpg";
+import Profil4 from "../assets/images/profil_4.jpg";
+import Profil5 from "../assets/images/profil_5.jpg";
+import Profil6 from "../assets/images/profil_6.jpg";
+import Profil8 from "../assets/images/profil_8.jpg";
+import Profil9 from "../assets/images/profil_9.jpg";
+import ChatMessagesHeader from "./msgheader.jsx";
+import ChatMessageEditor from "./msgeditor.jsx";
+import DateTime from "../libs/datetime.js";
+import Contacts from "./contacts.jsx";
+import ChatContext from "./chat.jsx";
 import lodash from "lodash";
-import "../../css/body.css";
 import React from "react";
+import "../css/body.css";
 
 /*
 * @description: Creates application body view.

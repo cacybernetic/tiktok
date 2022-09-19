@@ -10,9 +10,9 @@
 */
 
 // Dependencies.
-import RightChat from "../../components/right_chat/ui.jsx";
-import LeftChat from "../../components/left_chat/ui.jsx";
-import "../../css/msgcontext.css";
+import RightChat from "../components/rchat.jsx";
+import LeftChat from "../components/lchat.jsx";
+import "../css/msgcontext.css";
 import React from "react";
 
 /*

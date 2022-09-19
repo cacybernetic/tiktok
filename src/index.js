@@ -1,7 +1,7 @@
 // Dependencies.
 import reportWebVitals from "./reportWebVitals";
 import ReactDOM from "react-dom/client";
-import App from "./views/main/app.jsx";
+import App from "./views/app.jsx";
 import React from "react";
 
 // Creates a root.

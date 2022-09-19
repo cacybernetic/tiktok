@@ -10,8 +10,8 @@
 */
 
 // Dependencies.
-import DateTime from "../../lib/datetime.js";
-import "../../css/msgeditor.css";
+import DateTime from "../libs/datetime.js";
+import "../css/msgeditor.css";
 import React from "react";
 
 /*

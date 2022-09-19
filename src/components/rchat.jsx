@@ -10,7 +10,7 @@
 */
 
 // Dependencies.
-import "../../css/rchat.css";
+import "../css/rchat.css";
 import React from "react";
 
 /*

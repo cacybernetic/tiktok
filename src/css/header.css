@@ -3,7 +3,7 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-14
-* @updated: 2022-09-14
+* @updated: 2022-09-18
 * @framework: React
 * @author: Obrymec
 * @version: 0.2.3
@@ -48,6 +48,8 @@ div.global-header {
   padding-bottom: 10px;
   align-items: center;
   padding-top: 10px;
+  position: relative;
+  z-index: 1;
   width: 100%;
   gap: 10%; }
   div.global-header div.tiktok-img {
@@ -59,6 +61,7 @@ div.global-header {
       font-family: "PublicSansBold";
       font-size: 25px; }
   div.global-header div.searcher {
+    transform: translate3d(0, 0, 0);
     justify-content: flex-end;
     display: inline-flex;
     align-items: center;
@@ -84,6 +87,14 @@ div.global-header {
         font-family: "OxygenRegular";
         font-size: 12px;
         color: gray; }
+    div.global-header div.searcher div.menu-dropdown {
+      transform: translate(0, 52px);
+      background-color: #fff;
+      border-radius: 8px;
+      position: fixed;
+      top: 2px;
+      right: 0;
+      left: 0; }
     div.global-header div.searcher div.clear-icon {
       transform: translateX(-58px);
       transition: opacity 0.4s;
