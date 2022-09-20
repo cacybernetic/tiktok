@@ -3,7 +3,7 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-15
-* @updated: 2022-09-18
+* @updated: 2022-09-19
 * @framework: React
 * @author: Obrymec
 * @version: 0.1.1
@@ -237,9 +237,8 @@ export default class Body extends React.PureComponent {
     * @return: JSXObject
     */
 	render = () => <div className = "chat-workspace">
-        <br/>
         {/* Global container */}
-        <div className = "chat-container">
+        <br/><div className = "chat-container">
             {/* Left arrow container */}
             <div className = "left-arrow" title = "Back to the previous page.">
                 {/* Vector image */}
@@ -249,7 +248,8 @@ export default class Body extends React.PureComponent {
                 </svg>
             </div>
             {/* Availables users contacts */}
-            <Contacts chatContext = {this.chat_context.current} contacts = {this.state.chats} setIndex = {this.__set_active_contact_index}/>
+            <Contacts onSettings = {() => this.props.onSettings ()} chatContext = {this.chat_context.current} contacts = {this.state.chats}
+                setIndex = {this.__set_active_contact_index}/>
             {/* Messages worksapce */}
             <div className = "messages-workspace">
                 {/* Messages header container */}

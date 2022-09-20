@@ -3,13 +3,14 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-14
-* @updated: 2022-09-18
+* @updated: 2022-09-19
 * @framework: React
 * @author: Obrymec
 * @version: 0.0.3
 */
 
 // Dependencies.
+import MessagesSettings from "./msgsettings.jsx";
 import Header from "./header.jsx";
 import Body from "./body.jsx";
 import React from "react";
@@ -30,7 +31,9 @@ export default class App extends React.PureComponent {
 		// Calls the parent constructor.
 		super (props);
 		// Global attributes.
-		this.state = {};
+		this.state = {
+			modal: false
+		};
 	}
 
 	/*
@@ -41,6 +44,8 @@ export default class App extends React.PureComponent {
 		{/* Application global header view */}
 		<Header/>
 		{/* Application chat workspace */}
-		<Body/>
+		<Body onSettings = {() => this.setState ({modal: true})}/>
+		{/* Messages settings modal box representation */}
+		{this.state.modal && <MessagesSettings onClosed = {() => this.setState ({modal: false})}/>}
 	</div>;
 }

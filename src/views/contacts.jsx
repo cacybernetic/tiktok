@@ -3,7 +3,7 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-17
-* @updated: 2022-09-18
+* @updated: 2022-09-19
 * @framework: React
 * @author: Obrymec
 * @version: 0.0.5
@@ -62,7 +62,7 @@ export default class Contacts extends React.PureComponent {
             {/* Label text */}
             <div className = "contacts-title"><label><strong>Messages</strong></label></div>
             {/* Settings icon */}
-            <div className = "settings-icon" title = "Display contacts settings.">
+            <div className = "settings-icon" title = "Display contacts settings." onClick = {() => this.props.onSettings ()}>
                 {/* Vector representation */}
                 <svg viewBox = "0 0 512 512" width = "24px" height = "24px" fill = "#343434">
                     <path d = {`M262.29,192.31a64,64,0,1,0,57.4,57.4A64.13,64.13,0,0,0,262.29,192.31ZM416.39,

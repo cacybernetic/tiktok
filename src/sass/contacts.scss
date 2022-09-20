@@ -3,7 +3,7 @@
 * @project: Tiktok Chat Simulation
 * @platform: PC (DESKTOP)
 * @created: 2022-09-17
-* @updated: 2022-09-17
+* @updated: 2022-09-19
 * @framework: React
 * @author: Obrymec
 * @version: 0.0.1
@@ -45,7 +45,7 @@ div.users-contacts {
             padding-right: 20px;
             cursor: pointer;
             display: flex;
-            // Image.
+            // Vector representation.
             svg {
                 transform: rotate(-30deg);
             }
